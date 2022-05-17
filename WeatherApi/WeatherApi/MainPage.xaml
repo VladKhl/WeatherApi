@@ -6,7 +6,7 @@
         <SearchBar
             x:Name="CitiesNamesSearchBar"
             Margin="0"
-            Placeholder="Введите город"
+            Placeholder="Введите название города"
             IsSpellCheckEnabled="True"
             SearchButtonPressed="CitiesNamesSearchBar_SearchButtonPressed" />
         <StackLayout Orientation="Horizontal">
