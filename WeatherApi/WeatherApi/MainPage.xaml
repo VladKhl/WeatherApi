@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApi.MainPage" Visual="Material" Background="White">
+    <StackLayout Margin="15">
+        <SearchBar
+            x:Name="CitiesNamesSearchBar"
+            Margin="0"
+            Placeholder="Введите город"
+            IsSpellCheckEnabled="True"
+            SearchButtonPressed="CitiesNamesSearchBar_SearchButtonPressed" />
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="25" Text="Tемпература" TextColor="Black"/>
+            <Label
+                x:Name="TempLbl"
+                FontSize="25"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding temp}"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="25" Text="Ощущается как"  TextColor="Black"/>
+            <Label
+                x:Name="FeelsLikeLbl"
+                FontSize="25"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding feels_like}"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="25" Text="Давление" TextColor="Black"/>
+            <Label
+                x:Name="PressureLbl"
+                FontSize="25"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding pressure}"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="25" Text="Влажность" TextColor="Black"/>
+            <Label
+                x:Name="HumidityLbl"
+                FontSize="25"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding humidity}"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label FontSize="25" Text="Ветер" TextColor="Black"/>
+            <Label
+                x:Name="WindLbl"
+                FontSize="25"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding speed}"
+                TextColor="Black"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </StackLayout>
+
+
+</ContentPage>
