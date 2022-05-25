@@ -51,5 +51,27 @@ namespace WeatherApi.Services
             return TodoItems;
         }
 
+        public async Task<Rootobject> GetLocItemAsync(string lat, string lon)
+        {
+            TodoItems = new Rootobject();
+
+            Uri uri = new Uri(string.Format(Constants.RestUrl2, lat, lon));
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    TodoItems = JsonSerializer.Deserialize<Rootobject>(content, serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return TodoItems;
+        }
+
     }
 }

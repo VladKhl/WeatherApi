@@ -18,5 +18,9 @@ namespace WeatherApi.Services
         {
             return service.GetTodoItemAsync(cityName);
         }
+        public Task<Rootobject> GetLocItemAsync(string lat, string lon)
+        {
+            return service.GetLocItemAsync(lat, lon);
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace WeatherApi.Services
     public interface IRestService
     {
         Task<Rootobject> GetTodoItemAsync(string cityName);
+        Task<Rootobject> GetLocItemAsync(string lat, string lon);
     }
 }

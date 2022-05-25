@@ -3,7 +3,7 @@
     public class Rootobject
     {
         public Coord coord { get; set; }
-        public Weather[] weather { get; set; }
+        public Weather [] weather { get; set; }
         public string _base { get; set; }
         public Main main { get; set; }
         public int visibility { get; set; }
