@@ -20,11 +20,12 @@ namespace WeatherApi
         public MainPage()
         {
             InitializeComponent();
-            var res = GetCurLocation(); 
-        }
+            var res = GetCurLocation();
+        }   
+
         async Task<Location> GetCurLocation()
         {
-            var requset = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(1));
+            var requset = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(5));
             cts = new CancellationTokenSource();
             var location = await Geolocation.GetLocationAsync(requset, cts.Token);
             if (location != null)
