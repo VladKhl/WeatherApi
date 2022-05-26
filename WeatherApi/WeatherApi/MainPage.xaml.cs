@@ -20,7 +20,7 @@ namespace WeatherApi
         public MainPage()
         {
             InitializeComponent();
-            var res = GetCurLocation();
+            var res = GetCurLocation(); 
         }
         async Task<Location> GetCurLocation()
         {
@@ -43,7 +43,40 @@ namespace WeatherApi
                         CachingEnabled = false,
                         Uri = new Uri($"http://openweathermap.org/img/wn/{a.weather[0].icon}.png"),
                     };
-                    WindLbl.Text = a.wind.speed.ToString() + " м/с";
+                    string degwind = "";
+                    if (a.wind.deg == 360)
+                    {
+                        degwind = "С";
+                    }
+                    else if (a.wind.deg == 90)
+                    {
+                        degwind = "В";
+                    }
+                    else if (a.wind.deg == 180)
+                    {
+                        degwind = "Ю";
+                    }
+                    else if (a.wind.deg == 270)
+                    {
+                        degwind = "З";
+                    }
+                    else if (a.wind.deg < 360 && a.wind.deg > 270)
+                    {
+                        degwind = "СЗ";
+                    }
+                    else if (a.wind.deg < 90)
+                    {
+                        degwind = "СВ";
+                    }
+                    else if (a.wind.deg < 180 && a.wind.deg > 90)
+                    {
+                        degwind = "ЮВ";
+                    }
+                    else if (a.wind.deg < 270 && a.wind.deg > 180)
+                    {
+                        degwind = "ЮЗ";
+                    }
+                    WindLbl.Text = a.wind.speed.ToString() + " м/с " + degwind;
                     Pin pin = new Pin
                     {
                         Label = a.name,
@@ -75,7 +108,40 @@ namespace WeatherApi
                     CachingEnabled = false,
                     Uri = new Uri($"http://openweathermap.org/img/wn/{a.weather[0].icon}.png"),
                 };
-                WindLbl.Text = a.wind.speed.ToString() + " м/с";
+                string degwind = "";
+                if (a.wind.deg == 360)
+                {
+                    degwind = "С";
+                }
+                else if(a.wind.deg == 90)
+                {
+                    degwind = "В";
+                }
+                else if (a.wind.deg == 180)
+                {
+                    degwind = "Ю";
+                }
+                else if (a.wind.deg == 270)
+                {
+                    degwind = "З";
+                }
+                else if (a.wind.deg < 360 && a.wind.deg > 270)
+                {
+                    degwind = "СЗ";
+                }
+                else if (a.wind.deg < 90)
+                {
+                    degwind = "СВ";
+                }
+                else if (a.wind.deg < 180 && a.wind.deg > 90)
+                {
+                    degwind = "ЮВ";
+                }
+                else if (a.wind.deg < 270 && a.wind.deg > 180)
+                {
+                    degwind = "ЮЗ";
+                }
+                WindLbl.Text = a.wind.speed.ToString() + " м/с " + degwind;
                 MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(a.coord.lat, a.coord.lon),
                                                          Distance.FromMiles(1)));
                 Pin pin = new Pin
@@ -93,5 +159,6 @@ namespace WeatherApi
                 await DisplayAlert("Ошибка", $"Введите название города\n{ex.Message}", "Ok");
             }
         }
+
     }
 }
